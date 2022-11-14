@@ -4,8 +4,8 @@ const htmlGen = require('./htmlGen')
 
 inquirer.prompt([
 {
-    name: 'greetings',
-    message: 'Welcome to the "Team Profile Generator"!\n What will the name of this file be?'
+    name: 'team',
+    message: 'What do you want to name this team?'
 },
 {
     name: 'manager',
@@ -13,12 +13,22 @@ inquirer.prompt([
 },
 {
     name: 'managerID',
-    message: `What is the manager's ID`,
-}
+    message: `What is the manager's ID?`,
+},
+{
+    name: 'email',
+    message: `What is the manager's email address?`
+},
+{
+    name: 'office',
+    message: `What is the manager's office number?`
+},
+
 ])
+
 
 .then((answers) => {
     const responses = htmlGen(answers)
-    const fileName = `${answers.greetings.toLowerCase().split(' ').join('')}.html`;
+    const fileName = 'index.html';
     fs.writeFile(fileName, responses, (err) => err ? console.log(err) : console.log('success'))
 })
