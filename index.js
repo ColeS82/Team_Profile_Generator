@@ -18,8 +18,8 @@ inquirer.prompt([
         message: "What is the this person's name?",
     },
     {
-        name: 'managerID',
-        message: `What is the manager's ID?`,
+        name: 'id',
+        message: `What is the employee ID?`,
     },
     {
         name: 'email',
@@ -29,12 +29,6 @@ inquirer.prompt([
         name: 'office',
         message: `What is the manager's office number?`
     },
-    {
-        type: 'confirm',
-        name: 'again',
-        message: 'Would you like to enter a new employee?',
-        default: true
-    }
     
 ])
 
@@ -43,6 +37,5 @@ inquirer.prompt([
         const responses = htmlGen(answers)
         const fileName = 'index.html';
         fs.writeFile(fileName, responses, (err) => err ? console.log(err) : console.log('success'))
-        console.log(answers)
     }
 )
